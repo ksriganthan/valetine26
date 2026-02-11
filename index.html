@@ -1,10 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Valentine26 KS ❤️</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-$END$
+
+<div class="progress">
+    <span id="current-slide">0</span> / <span id="total-slides">9</span>
+</div>
+
+<button class="back-button hidden" id="backBtn" onclick="previousSlide()">← Zurück</button>
+
+    <!-- Image Zoom Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Curtain Transition Effect -->
+    <div id="curtainLeft" class="curtain left"></div>
+    <div id="curtainRight" class="curtain right"></div>
+
+<div class="container">
+    <!-- Slide 0: Welcome -->
+    <div class="slide active" data-slide="0">
+        <div class="emoji-large">💕</div>
+        <h1>Hallo Sushana</h1>
+        <p style="font-size: 1.6rem; margin: 40px 0;">
+            Willkommen zu unserer Geschichte…<br><br>
+            <span style="color: #e60073; font-weight: 700;">Du bist das Beste, das mir je passiert ist</span>
+        </p>
+        <p style="margin-top: 50px; font-size: 1.2rem; color: #764ba2;">
+            Lass dich überraschen und klick dich durch unsere gemeinsamen Momente 🌹
+        </p>
+        <div class="button-group" style="margin-top: 60px;">
+            <button onclick="transitionWithCurtain()">Unsere Geschichte beginnt 💕</button>
+        </div>
+    </div>
+
+    <!-- Slide 1: Intro -->
+    <div class="slide" data-slide="1">
+        <img src="images/1.jpeg" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">❤️</div>
+        <h1>Unsere Geschichte</h1>
+        <p>Eine Reise voller Liebe, Lachen und unvergesslicher Momente</p>
+        <div class="button-group">
+            <button onclick="nextSlide()">Beginnen 🚀</button>
+        </div>
+    </div>
+
+    <!-- Slide 2: The Beginning -->
+    <div class="slide" data-slide="2">
+        <img src="images/OIP.webp" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">📱</div>
+        <h2>Der Anfang</h2>
+        <p>
+            Alles begann auf der App <b>Hope</b>.<br><br>
+            Ich weiss, du sprichst nicht gerne über diese App, aber sie war der Anfang von allem.<br>
+            Was erst eine einfache Nachricht war, wurde schnell zu endlosen Gesprächen.<br>
+            Dann zu nächtlichen Anrufen über Snapchat.<br>
+            Zu Stunden, in denen die Welt um uns herum einfach verschwand.<br><br>
+            Jede Nachricht war ein Funke.<br>
+            Jeder Anruf ein neues Kapitel unserer Geschichte.
+        </p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="nextSlide()">Weiter →</button>
+        </div>
+    </div>
+
+    <!-- Slide 3: Valentine's Day -->
+    <div class="slide" data-slide="3">
+        <img src="images/2.jpeg" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">💐</div>
+        <h2>1. Valentinstag & Das Militär</h2>
+        <p>
+            Dann kam das Militär…<br><br>
+            Ausgerechnet am gleichen Tag, an dem ich es antreten musste, war Valentinstag vor genau 4 Jahren.<br>
+            Aber ich wollte trotzdem, dir eine Freude machen: <b>Ich schickte dir zum allerersten Mal Blumen und somit auch einen Teil meiner Liebe zu dir</b>.<br><br>
+            Nach einer Woche Militär bekam ich endlich Ausgang.<br>
+            Und statt zu schlafen: Wir traffen uns zum ersten Mal!<br><br>
+            <b>Von 23 Uhr bis 5 Uhr morgens</b> durchstreiften wir <b>Dornach</b>.<br>
+            Kein Plan. Keine Route. Nur wir zwei. Und .. viel Liebe.<br>
+            Der Mond über uns, die Welt nur für uns.
+        </p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="nextSlide()">Weiter →</button>
+        </div>
+    </div>
+
+    <!-- Slide 4: Growing Together -->
+    <div class="slide" data-slide="4">
+        <img src="images/3.jpeg" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">✨</div>
+        <h2>Unser erstes Abenteuer</h2>
+        <p>
+            <b>Das erste Tattoo.</b><br>
+            Ein Symbol für uns, für den Anfang unserer gemeinsamen Geschichte.<br><br>
+            Dann lerntest du <b>meine Schwester</b> kennen.<br>
+            Danach meine <b>Mutter</b>.<br><br>
+            Und beim <b>Gender Reveal deiner Schwester</b> lernte ich <br>
+            deine ganze <b>Familie kennen</b>.<br><br>
+            Nebenher verbanden wir unsere <b>Freundeskreise</b>.<br>
+            Das war der Moment, in dem wir keine zwei Welten mehr waren.<br>
+            Wir wurden eine.
+        </p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="nextSlide()">Weiter →</button>
+        </div>
+    </div>
+
+    <!-- Slide 5: Adventures -->
+    <div class="slide" data-slide="5">
+        <img src="images/4.jpeg" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">🌍</div>
+        <h2>Die Welt erkunden zusammen</h2>
+        <p>
+            Und dann <b>begannen die Reisen</b>.<br><br>
+            <b>Cagliari</b> • <b>Amsterdam</b> • <b>Mallorca</b><br>
+            <b>Barcelona</b> • <b>Kreta</b> • <b>Nizza</b><br>
+            <b>Frankfurt</b> • <b>Monaco</b> • <b>Gran Canaria</b><br>
+            <b>Benidorm</b> • <b>Strassburg</b><br><br>
+            So viele Orte, so viele Erinnerungen.<br>
+            Neue Kulturen, neue Abenteuer, neue Momente.<br><br>
+            Aber weisst du was?<br>
+            Der schönste Ort war immer dort, wo du bei mir warst.
+        </p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="nextSlide()">Weiter →</button>
+        </div>
+    </div>
+
+    <!-- Slide 6: Photo Gallery -->
+    <div class="slide" data-slide="6">
+        <div class="emoji-large">📸</div>
+        <h2>Unsere schönsten Momente</h2>
+        <div class="photo-gallery">
+            <div class="photo-container">
+                <img src="images/5.jpeg" alt="Unsere Geschichte" class="gallery-photo">
+            </div>
+            <div class="photo-container">
+                <img src="images/6.jpeg" alt="Unsere Geschichte" class="gallery-photo">
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 1.1rem;">Diese Momente machen unsere Geschichte unvergesslich ❤️</p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="nextSlide()">Weiter →</button>
+        </div>
+    </div>
+
+    <!-- Slide 7: Four Years Later -->
+    <div class="slide" data-slide="7">
+        <img src="images/7.jpeg" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">💕</div>
+        <h2>Vier Jahre später</h2>
+        <p>
+            Vier Valentinstage voller <b>Erinnerungen, Lachen und Liebe</b>.<br><br>
+            Und wenn ich zurückblicke,<br>
+            sehe ich keinen Zufall mehr.<br><br>
+            <b>Ich sehe uns.</b>
+        </p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="nextSlide()">Finale →</button>
+        </div>
+    </div>
+
+    <!-- Slide 8: The Question -->
+    <div class="slide" data-slide="8">
+        <img src="images/val.jpg" alt="Unsere Geschichte" class="slide-image">
+        <div class="emoji-large">🌹</div>
+        <div class="emoji-large">🌹</div>
+        <h1>4. gemeinsamer Valentinstag…</h1>
+        <p>Nach all diesen wundervollen Momenten möchte ich dir etwas sagen:</p>
+        <div class="button-group">
+            <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
+            <button onclick="showFinal()"> Klick !💖</button>
+        </div>
+        <div id="final-message"></div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('total-slides').textContent = totalSlides;
+
+    function showSlide(n) {
+        const slides = document.querySelectorAll('.slide');
+        const backBtn = document.getElementById('backBtn');
+
+        if (n >= totalSlides) {
+            currentSlide = totalSlides - 1;
+        }
+        if (n < 0) {
+            currentSlide = 0;
+        }
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlide].classList.add('active');
+
+        document.getElementById('current-slide').textContent = currentSlide;
+
+        // Back button visibility
+        if (currentSlide === 0) {
+            backBtn.classList.add('hidden');
+        } else {
+            backBtn.classList.remove('hidden');
+        }
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        showSlide(currentSlide);
+    }
+
+    function previousSlide() {
+        currentSlide--;
+        showSlide(currentSlide);
+    }
+
+    function transitionWithCurtain() {
+        const curtainLeft = document.getElementById('curtainLeft');
+        const curtainRight = document.getElementById('curtainRight');
+
+        if (!curtainLeft || !curtainRight) {
+            nextSlide();
+            return;
+        }
+
+        // Show curtains
+        curtainLeft.classList.add('active');
+        curtainRight.classList.add('active');
+
+        // After animation, change slide and hide curtains
+        setTimeout(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+
+            // Remove active class and hide curtains
+            curtainLeft.classList.remove('active');
+            curtainRight.classList.remove('active');
+        }, 2000);
+    }
+
+    function showFinal() {
+        const answer = prompt("Wie sehr liebst du mich von 1-10? 💕");
+
+        if (answer === null || answer === "") {
+            return;
+        }
+
+        if (answer.trim() !== "10") {
+            alert("❌ Das ist nicht richtig! Die Antwort muss 10 sein! 💔");
+            return;
+        }
+
+        displayLetter();
+    }
+
+    function displayLetter() {
+        const finalMsg = document.getElementById('final-message');
+
+        finalMsg.innerHTML = `
+            <div class="letter-container">
+                <div class="letter" id="letterToClick">
+                    <div class="letter-top"></div>
+                    <div class="envelope-label">Für Sushana 💕</div>
+                    <div class="letter-content">
+                        <p class="final-text">Ich liebe dich und ich kann glücklich sein, dich zum bereits 4. Mal als meinen Valentine Bby zu nennen! 🌹</p>
+                        <p class="final-text">Du bist mein grösstes Glück, mein Abenteuer und mein Zuhause. Danke, dass du jeden Tag mit mir schön machst. ❤️</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Make letter clickable to open
+        const letterElement = document.getElementById('letterToClick');
+        const letterTop = letterElement.querySelector('.letter-top');
+        const letterContent = letterElement.querySelector('.letter-content');
+
+        letterElement.style.cursor = 'pointer';
+        letterElement.classList.add('closed');
+
+        letterElement.addEventListener('click', function() {
+            letterTop.classList.add('opening');
+            letterContent.classList.add('opening');
+            letterElement.classList.remove('closed');
+            letterElement.style.cursor = 'default';
+
+            // Start hearts after letter opens
+            setTimeout(() => {
+                createHearts();
+            }, 2000);
+        });
+    }
+
+    function createHearts() {
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                heart.innerHTML = "❤";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+                heart.style.animationDelay = "0s";
+                document.body.appendChild(heart);
+            }, i * 50);
+        }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight') nextSlide();
+        if (event.key === 'ArrowLeft') previousSlide();
+    });
+
+    // Image Zoom Functionality
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.querySelector(".close");
+
+    // Add zoom to all images
+    function makeImageZoomable(img) {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+        });
+    }
+
+    // Get all slide images and gallery photos
+    const allImages = document.querySelectorAll('.slide-image, .gallery-photo');
+    allImages.forEach(img => makeImageZoomable(img));
+
+    // Close modal on X click
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = "none";
+    });
+
+    // Close modal on outside click
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
+
+    showSlide(currentSlide);
+</script>
+
 </body>
 </html>
