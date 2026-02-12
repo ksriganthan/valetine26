@@ -354,9 +354,13 @@
             return;
         }
 
-        if (answer.trim() !== "10") {
-            alert("❌ Das ist nicht richtig! Die Antwort muss 10 sein! 💔");
+        if (answer.trim() !== "10" && answer.trim() < "11") {
+            alert("❌ Das ist nicht akzeptabel! 💔");
             return;
+        }
+        else if(answer.trim() >= "11") {
+            alert("😂 Das ist übertrieben! Aber ich liebe dich auch so fest! 💖");
+
         }
 
         // Disable the button
@@ -377,7 +381,7 @@
                     <div class="envelope-label">Für mein Bby 💕</div>
                     <div class="letter-content">
                         <p class="final-text">Ich liebe dich und ich kann glücklich sein, dich zum bereits 4. Mal als meinen Valentine Bby zu nennen! 🌹</p>
-                        <p class="final-text">Du bist mein grösstes Glück, mein Abenteuer und mein Zuhause. Danke, dass du jeden Tag mit mir schön machst. ❤️</p>
+                        <p class="final-text">Du bist mein grösstes Glück, mein Abenteuer und mein Zuhause. Danke, dass du jeden Tag von mir schön machst. ❤️</p>
                     </div>
                 </div>
             </div>
