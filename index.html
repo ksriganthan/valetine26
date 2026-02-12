@@ -354,13 +354,19 @@
             return;
         }
 
-        if (answer.trim() !== "10" && answer.trim() < "11") {
+        const num = parseInt(answer.trim());
+
+        if (isNaN(num)) {
+            alert("❌ Bitte gib eine Zahl ein! 💔");
+            return;
+        }
+
+        if (num < 10) {
             alert("❌ Das ist nicht akzeptabel! 💔");
             return;
         }
-        else if(answer.trim() >= "11") {
+        else if (num > 10) {
             alert("😂 Das ist übertrieben! Aber ich liebe dich auch so fest! 💖");
-
         }
 
         // Disable the button
