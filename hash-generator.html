@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SHA-256 Hash Generator</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input { padding: 10px; width: 100%; margin: 10px 0; font-size: 16px; }
+        button { padding: 10px 20px; background: #e60073; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .result { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SHA-256 Hash Generator</h1>
+        <input type="text" id="input" placeholder="Gib 08.02.2022 ein" value="08.02.2022">
+        <button onclick="generateHash()">Hash berechnen</button>
+        <div class="result">
+            <p><b>Hash:</b></p>
+            <p id="hash">Hier wird der Hash angezeigt...</p>
+        </div>
+    </div>
+
+    <script>
+        async function generateHash() {
+            const input = document.getElementById('input').value;
+            const encoder = new TextEncoder();
+            const data = encoder.encode(input);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            document.getElementById('hash').textContent = hashHex;
+        }
+
+        // Auto-generate on load
+        generateHash();
+    </script>
+</body>
+</html>

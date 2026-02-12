@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hash Test</title>
+</head>
+<body>
+    <h1>SHA-256 Hash Calculator</h1>
+    <p>Gib 08.02.2021 ein, um den Hash zu berechnen:</p>
+    <script>
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        hashPassword('08.02.2021').then(hash => {
+            console.log('Hash von 08.02.2021:', hash);
+            document.body.innerHTML += '<p><b>Hash:</b> ' + hash + '</p>';
+        });
+    </script>
+</body>
+</html>

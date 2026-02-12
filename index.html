@@ -7,12 +7,15 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
 </head>
 
 <body>
 
 <div class="progress">
-    <span id="current-slide">0</span> / <span id="total-slides">9</span>
+    <span id="current-slide">1</span> / <span id="total-slides">11</span>
 </div>
 
 <button class="back-button hidden" id="backBtn" onclick="previousSlide()">← Zurück</button>
@@ -29,10 +32,47 @@
     <div id="curtainRight" class="curtain right"></div>
 
 <div class="container">
-    <!-- Slide 0: Welcome -->
+    <!-- Slide 0: Authentication -->
     <div class="slide active" data-slide="0">
+        <div class="emoji-large">🔐</div>
+        <h1>Willkommen!</h1>
+        <p style="font-size: 1.4rem; margin: 40px 0;">
+            Diese Geschichte ist speziell für dich...
+        </p>
+        <p style="margin-top: 50px; font-size: 1.1rem; color: #764ba2;">
+            Klick auf den Button, wenn du Sushana Y. bist 💕
+        </p>
+        <div class="button-group" style="margin-top: 60px;">
+            <button onclick="authenticate()">Ja, ich bin es 💫</button>
+        </div>
+    </div>
+
+    <!-- Slide 1: Secret Question -->
+    <div class="slide" data-slide="1">
+        <div class="emoji-large">🔑</div>
+        <h1>Eine geheime Frage...</h1>
+        <p style="font-size: 1.2rem; margin: 40px 0; color: #764ba2;">
+            Nur du kennst die Antwort 💕
+        </p>
+        <p style="font-size: 1.1rem; margin: 30px 0;">
+            <b>Unser 1. Jahrestag war wann?</b><br>
+            (Bitte im Format: DD.MM.YYYY eingeben)
+        </p>
+        <div style="margin: 40px 0;">
+            <input type="text" id="passwordInput" placeholder="z.B. 31.12.9999" style="padding: 12px; font-size: 1.1rem; text-align: center; border: 2px solid #e60073; border-radius: 8px; width: 250px;">
+        </div>
+        <div class="button-group" style="margin-top: 60px;">
+            <button onclick="verifyPassword()">Bestätigen 💫</button>
+        </div>
+        <p id="passwordError" style="color: #e60073; font-weight: bold; margin-top: 20px; display: none;">
+            Das ist nicht korrekt! Versuche es nochmal ❤️
+        </p>
+    </div>
+
+    <!-- Slide 2: Welcome -->
+    <div class="slide" data-slide="2">
         <div class="emoji-large">💕</div>
-        <h1>Hallo Sushana</h1>
+        <h1>Hallo Bby</h1>
         <p style="font-size: 1.6rem; margin: 40px 0;">
             Willkommen zu unserer Geschichte…<br><br>
             <span style="color: #e60073; font-weight: 700;">Du bist das Beste, das mir je passiert ist</span>
@@ -45,8 +85,8 @@
         </div>
     </div>
 
-    <!-- Slide 1: Intro -->
-    <div class="slide" data-slide="1">
+    <!-- Slide 3: Intro -->
+    <div class="slide" data-slide="3">
         <img src="images/1.jpeg" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">❤️</div>
         <h1>Unsere Geschichte</h1>
@@ -56,15 +96,15 @@
         </div>
     </div>
 
-    <!-- Slide 2: The Beginning -->
-    <div class="slide" data-slide="2">
+    <!-- Slide 4: The Beginning -->
+    <div class="slide" data-slide="4">
         <img src="images/OIP.webp" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">📱</div>
         <h2>Der Anfang</h2>
         <p>
-            Alles begann auf der App <b>Hope</b>.<br><br>
-            Ich weiss, du sprichst nicht gerne über diese App, aber sie war der Anfang von allem.<br>
-            Was erst eine einfache Nachricht war, wurde schnell zu endlosen Gesprächen.<br>
+            Alles begann auf der App <b>Hoop</b>.<br><br>
+            Ich weiss, du sprichst nicht gerne über diese App, aber sie war tatsächlich der Anfang von allem.<br>
+            Was erst eine einfache, langeweile-vertreibende Nachricht war, wurde schnell zu endlosen Gesprächen.<br>
             Dann zu nächtlichen Anrufen über Snapchat.<br>
             Zu Stunden, in denen die Welt um uns herum einfach verschwand.<br><br>
             Jede Nachricht war ein Funke.<br>
@@ -76,8 +116,8 @@
         </div>
     </div>
 
-    <!-- Slide 3: Valentine's Day -->
-    <div class="slide" data-slide="3">
+    <!-- Slide 5: Valentine's Day -->
+    <div class="slide" data-slide="5">
         <img src="images/2.jpeg" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">💐</div>
         <h2>1. Valentinstag & Das Militär</h2>
@@ -97,8 +137,8 @@
         </div>
     </div>
 
-    <!-- Slide 4: Growing Together -->
-    <div class="slide" data-slide="4">
+    <!-- Slide 6: Growing Together -->
+    <div class="slide" data-slide="6">
         <img src="images/3.jpeg" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">✨</div>
         <h2>Unser erstes Abenteuer</h2>
@@ -119,8 +159,9 @@
         </div>
     </div>
 
-    <!-- Slide 5: Adventures -->
-    <div class="slide" data-slide="5">
+
+    <!-- Slide 7: Adventures -->
+    <div class="slide" data-slide="7">
         <img src="images/4.jpeg" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">🌍</div>
         <h2>Die Welt erkunden zusammen</h2>
@@ -141,8 +182,8 @@
         </div>
     </div>
 
-    <!-- Slide 6: Photo Gallery -->
-    <div class="slide" data-slide="6">
+    <!-- Slide 8: Photo Gallery -->
+    <div class="slide" data-slide="8">
         <div class="emoji-large">📸</div>
         <h2>Unsere schönsten Momente</h2>
         <div class="photo-gallery">
@@ -160,8 +201,8 @@
         </div>
     </div>
 
-    <!-- Slide 7: Four Years Later -->
-    <div class="slide" data-slide="7">
+    <!-- Slide 9: Four Years Later -->
+    <div class="slide" data-slide="9">
         <img src="images/7.jpeg" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">💕</div>
         <h2>Vier Jahre später</h2>
@@ -177,12 +218,12 @@
         </div>
     </div>
 
-    <!-- Slide 8: The Question -->
-    <div class="slide" data-slide="8">
+    <!-- Slide 10: The Question -->
+    <div class="slide" data-slide="10">
         <img src="images/val.jpg" alt="Unsere Geschichte" class="slide-image">
         <div class="emoji-large">🌹</div>
         <div class="emoji-large">🌹</div>
-        <h1>4. gemeinsamer Valentinstag…</h1>
+        <h1>4. Gemeinsamer Valentinstag…</h1>
         <p>Nach all diesen wundervollen Momenten möchte ich dir etwas sagen:</p>
         <div class="button-group">
             <button class="button-secondary" onclick="previousSlide()">← Zurück</button>
@@ -196,6 +237,54 @@
     let currentSlide = 0;
     const totalSlides = document.querySelectorAll('.slide').length;
     document.getElementById('total-slides').textContent = totalSlides;
+
+    function authenticate() {
+        // Just proceed to the next slide
+        nextSlide();
+    }
+
+    // Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyA72lo6O4E2SWFj0fqJ5mRBFMGWIB3dGi8",
+        authDomain: "valentine26-ks.firebaseapp.com",
+        databaseURL: "https://valentine26-ks-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "valentine26-ks",
+        storageBucket: "valentine26-ks.firebasestorage.app",
+        messagingSenderId: "108920581112",
+        appId: "1:108920581112:web:9bc642ce4f025c9d1ac40d",
+        measurementId: "G-6LF7BYS19M"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Sichere Hash-Funktion (SHA-256)
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
+
+    function verifyPassword() {
+        const input = document.getElementById('passwordInput').value.trim();
+        const errorMsg = document.getElementById('passwordError');
+
+        // Einfache direkte Passwort-Prüfung
+        if (input === "08.02.2022") {
+            // Correct password
+            errorMsg.style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+            nextSlide();
+        } else {
+            // Wrong password
+            errorMsg.style.display = 'block';
+            document.getElementById('passwordInput').value = '';
+        }
+    }
 
     function showSlide(n) {
         const slides = document.querySelectorAll('.slide');
@@ -211,7 +300,7 @@
         slides.forEach(slide => slide.classList.remove('active'));
         slides[currentSlide].classList.add('active');
 
-        document.getElementById('current-slide').textContent = currentSlide;
+        document.getElementById('current-slide').textContent = currentSlide + 1;
 
         // Back button visibility
         if (currentSlide === 0) {
@@ -270,6 +359,11 @@
             return;
         }
 
+        // Disable the button
+        event.target.disabled = true;
+        event.target.style.opacity = "0.5";
+        event.target.style.cursor = "not-allowed";
+
         displayLetter();
     }
 
@@ -280,7 +374,7 @@
             <div class="letter-container">
                 <div class="letter" id="letterToClick">
                     <div class="letter-top"></div>
-                    <div class="envelope-label">Für Sushana 💕</div>
+                    <div class="envelope-label">Für mein Bby 💕</div>
                     <div class="letter-content">
                         <p class="final-text">Ich liebe dich und ich kann glücklich sein, dich zum bereits 4. Mal als meinen Valentine Bby zu nennen! 🌹</p>
                         <p class="final-text">Du bist mein grösstes Glück, mein Abenteuer und mein Zuhause. Danke, dass du jeden Tag mit mir schön machst. ❤️</p>
@@ -288,6 +382,12 @@
                 </div>
             </div>
         `;
+
+        // Automatisch nach unten scrollen zum Brief
+        setTimeout(() => {
+            const letterElement = document.getElementById('letterToClick');
+            letterElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
 
         // Make letter clickable to open
         const letterElement = document.getElementById('letterToClick');
@@ -367,6 +467,21 @@
             modal.style.display = "none";
         }
     });
+
+    // Allow Enter key to verify password
+    function setupPasswordInput() {
+        const passwordInput = document.getElementById('passwordInput');
+        if (passwordInput) {
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    verifyPassword();
+                }
+            });
+        }
+    }
+
+    // Setup password input listener when the page loads
+    setupPasswordInput();
 
     showSlide(currentSlide);
 </script>
